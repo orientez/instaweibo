@@ -21,10 +21,10 @@ def fetcher(inst):
     if not os.path.exists(inst_dir):
         logging.debug("creating " + inst)
         os.mkdir(inst_dir)
-    from_time = date(2015, 1, 1)
+    from_time = date(2012, 1, 1)
     to_time = date.today()
     looter = InstaLooter(profile=inst,directory=inst_dir)
-    looter.download_pictures(media_count=20, timeframe=(to_time, from_time), new_only=True)
+    looter.download_pictures(media_count=2000, timeframe=(to_time, from_time), new_only=True)
 
 
 def main():
@@ -41,5 +41,6 @@ def main():
     for t in threads:
         t.join()
 
-if __name__== "__main__":
+
+if __name__ == "__main__":
     main()
