@@ -9,7 +9,7 @@ import logging
 import time
 import threading
 
-logging.basicConfig(filename='weibo.log',level=logging.DEBUG,
+logging.basicConfig(filename='/tmp/weibo.log',level=logging.DEBUG,
                     format='%(asctime)s [%(levelname)s] (%(threadName)-10s) %(message)s')
 cfg = ConfigParser.ConfigParser()
 cfg.read("/opt/.weibo/weibo.conf")
@@ -53,7 +53,7 @@ def main():
         t = threading.Thread(name=insta, target=post_insta_images, args=(insta_path, tmp_key_word,))
         threads.append(t)
         t.start()
-        time.sleep(60)
+        time.sleep(61)
 
     for t in threads:
         t.join()
