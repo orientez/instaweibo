@@ -24,8 +24,7 @@ def post_image(key_word, image_file):
 
 key_word = u'#美臀课# #秋裤美臀# #美臀诱惑# #我是美臀控# #腿臀训练#'.encode('utf-8')
 cfg = ConfigParser.ConfigParser()
-homeDir = os.path.expanduser("~")
-cfg.read(homeDir + "/.weibo/weibo.conf")
+cfg.read("/opt/.weibo/weibo.conf")
 username = cfg.get("DEFAULT",'user')
 password = cfg.get("DEFAULT",'passwd')
 app_key = cfg.get("DEFAULT",'app_key')
