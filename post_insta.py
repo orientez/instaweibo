@@ -8,6 +8,7 @@ import json
 import logging
 import time
 import threading
+import random
 
 logging.basicConfig(filename='/tmp/weibo.log',level=logging.DEBUG,
                     format='%(asctime)s [%(levelname)s] (%(threadName)-10s) %(message)s')
@@ -39,21 +40,22 @@ def post_insta_images(insta_path, key_word):
     for image_file in os.listdir(insta_path):
         file_path = insta_path + "/" + image_file
         post_image(key_word, file_path)
-        time.sleep(60 * 60)
+        time.sleep(60 * 60 * 3)
 
 
 def main():
-    key_word = u'#美臀课# #秋裤美臀# #我是美臀控# #腿臀训练#'.encode('utf-8')
+    key_word = u'#我爱大肥臀# #最美翘臀# #翘臀看这里# #秋裤美臀# #我是美臀控# #腿臀训练#'.encode('utf-8')
     threads = []
     instas = os.listdir("./images")
     for insta in instas:
+        time.sleep(59 * 10 * random.random())
         tmp_key_word = '#' + insta + '# ' + key_word
         insta_path = "./images/" + insta
         print tmp_key_word
         t = threading.Thread(name=insta, target=post_insta_images, args=(insta_path, tmp_key_word,))
         threads.append(t)
         t.start()
-        time.sleep(61)
+        time.sleep(59 * random.random())
 
     for t in threads:
         t.join()
