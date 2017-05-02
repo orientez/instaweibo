@@ -40,7 +40,7 @@ def post_insta_images(insta_path, key_word):
     for image_file in os.listdir(insta_path):
         file_path = insta_path + "/" + image_file
         post_image(key_word, file_path)
-        time.sleep(60 * 60 * random.random())
+        time.sleep(60 * 60 * (random.random() + 1))
 
 
 def main():
@@ -48,7 +48,7 @@ def main():
     threads = []
     instas = os.listdir("./images")
     for insta in instas:
-        time.sleep(60 * random.random())
+        time.sleep(60 * (1 + random.random()))
         tmp_key_word = '#' + insta + '# ' + key_word
         insta_path = "./images/" + insta
         print tmp_key_word
