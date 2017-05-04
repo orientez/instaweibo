@@ -40,7 +40,7 @@ def post_insta_images(insta_path, key_word):
     for image_file in os.listdir(insta_path):
         file_path = insta_path + "/" + image_file
         post_image(key_word, file_path)
-        time.sleep(60 * 60 * (random.random() + 1))
+        time.sleep(60 * 60 * (random.random() + 0.5))
 
 
 def main():
